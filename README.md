@@ -54,7 +54,17 @@ Parakletos empowers churchgoers, Bible readers, and small group leaders to:
 - Convex account for backend sync
 - AWS account for file storage
 
-### Installation
+### Quick Setup
+
+1. **Clone and setup** (recommended)
+   ```bash
+   git clone https://github.com/yourusername/parakletos-agents.git
+   cd parakletos-agents
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+
+### Manual Installation
 
 1. **Clone the repository**
    ```bash
@@ -62,21 +72,14 @@ Parakletos empowers churchgoers, Bible readers, and small group leaders to:
    cd parakletos-agents
    ```
 
-2. **Install dependencies**
+2. **Install dependencies** ✅ (All dependency issues resolved!)
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **iOS setup (if targeting iOS)**
+3. **Environment setup**
    ```bash
-   cd ios && pod install && cd ..
-   ```
-
-4. **Environment setup**
-   ```bash
-   cp .env.example .env
+   cp env.example .env
    ```
    
    Fill in your environment variables:
@@ -87,6 +90,11 @@ Parakletos empowers churchgoers, Bible readers, and small group leaders to:
    AWS_SECRET_ACCESS_KEY=your_aws_secret
    S3_BUCKET_NAME=your_bucket_name
    FASTAPI_BASE_URL=your_api_url
+   ```
+
+4. **iOS setup** (macOS only)
+   ```bash
+   cd ios && pod install && cd ..
    ```
 
 5. **Run the app**
@@ -100,6 +108,8 @@ Parakletos empowers churchgoers, Bible readers, and small group leaders to:
    # Start Metro bundler
    npm start
    ```
+
+> **✅ Dependencies Fixed**: All major dependency conflicts have been resolved. See [DEPENDENCY_FIXES.md](DEPENDENCY_FIXES.md) for details.
 
 
 ## 🔧 Development
