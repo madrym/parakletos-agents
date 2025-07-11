@@ -1,21 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Text} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {EnhancedRichTextEditor} from '../../components/EnhancedRichTextEditor';
 import {theme} from '../../theme/theme';
 
 export default function NoteCreateScreen() {
+  const [noteContent, setNoteContent] = useState('');
+
+  const handleContentChange = (content: string) => {
+    setNoteContent(content);
+    // TODO: Save to local storage or state management
+    console.log('Note content updated:', content);
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text variant="headlineSmall" style={styles.title}>
-          Create New Note
-        </Text>
-        <Text variant="bodyMedium" style={styles.placeholder}>
-          Note editor will be implemented here
-        </Text>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <EnhancedRichTextEditor
+        title="Create New Note"
+        placeholder="Start writing your note... Try typing --John3:16 to insert a Bible verse!"
+        onContentChange={handleContentChange}
+        initialContent=""
+      />
+    </View>
   );
 }
 
@@ -23,19 +29,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-  },
-  content: {
-    flex: 1,
-    padding: theme.spacing.lg,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    marginBottom: theme.spacing.md,
-    color: theme.colors.onBackground,
-  },
-  placeholder: {
-    textAlign: 'center',
-    color: theme.colors.onSurfaceVariant,
   },
 }); 

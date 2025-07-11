@@ -11,6 +11,7 @@
     "postinstall": "npx pod-install || echo 'Skipping pod install on non-macOS'"
   },
   "dependencies": {
+    "@10play/tentap-editor": "^0.7.4",
     "@clerk/clerk-expo": "^2.14.3",
     "@clerk/clerk-react": "^5.33.0",
     "@nozbe/watermelondb": "^0.28.0",
@@ -39,6 +40,7 @@
     "react-native-screens": "^4.11.1",
     "react-native-uuid": "^2.0.3",
     "react-native-vector-icons": "^10.2.0",
+    "react-native-webview": "^13.15.0",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
